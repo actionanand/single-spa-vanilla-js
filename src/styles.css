@@ -44,12 +44,12 @@
 }
 
 .vanilla-wrap {
-  margin: 8px;
-  min-height: 73vh;
+  /* margin: 8px; */
+  min-height: 62vh;
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: var(--ff-secondary);;
   background: var(--clr-grey-10);
   color: var(--clr-grey-1);
   line-height: 1.5;
@@ -76,9 +76,9 @@ body {
   border-color: var(--clr-primary-8);
 }
 
-section {
+/* section {
   padding: 5rem 0;
-}
+} */
 
 .section-center {
   width: 90vw;
@@ -116,11 +116,17 @@ button {
   background: var(--clr-primary-1);
 }
 
-h3, h1, h2 {
+h1 {
   text-transform: uppercase;
   color: var(--clr-primary-1);
+  font-size: 1.5rem;
 }
 
 .result {
   margin-bottom: 2rem;
+}
+
+p {
+  margin-bottom: 1.25rem;
+  color: var(--clr-grey-5);
 }
