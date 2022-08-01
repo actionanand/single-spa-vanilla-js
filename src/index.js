@@ -17,7 +17,7 @@ const interpolateTemplate = () => {
 
 const htmlLifecycles = singleSpaHtml({
   domElementGetter: () => {
-    const id = "single-spa-application:@example/cookie-consent";
+    const id = "single-spa-application:@actionanand/single-spa-vanilla-js";
     let container = document.getElementById(id);
     if (!container) {
       container = document.createElement("div");

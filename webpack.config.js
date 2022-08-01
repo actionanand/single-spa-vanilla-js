@@ -6,7 +6,7 @@ const packageJson = require("./package.json");
 const isAnyOf = (value, list) => list.includes(value);
 
 module.exports = (env, argv) => {
-  let prodMode = argv?.p || argv?.mode === "production";
+  let prodMode = argv?.mode || argv?.p  === "production";
 
   return {
     mode: prodMode ? "production" : "development",
@@ -88,7 +88,7 @@ module.exports = (env, argv) => {
         const path = isAnyOf(publicPath, ["", "auto"]) ? "/" : publicPath;
 
         console.log(
-          `\n  ⚡️ single-spa application entry: ${protocol}${host}${port}${path}${filename}\n`
+          `\n  ⚡️ single-spa vanilla JS app entry: ${protocol}${host}${port}${path}${filename}\n`
         );
       },
     },
