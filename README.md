@@ -78,3 +78,7 @@ git clone <url> --branch <branch>
 npx degit github:user/repo#branch-name <folder-name>
 ```
 - master branch is default.
+
+```bash
+npx degit github:actionanand/single-spa-vanilla-js#1-cookie-example
+```
