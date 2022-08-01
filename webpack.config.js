@@ -6,7 +6,7 @@ const packageJson = require("./package.json");
 const isAnyOf = (value, list) => list.includes(value);
 
 module.exports = (env, argv) => {
-  let prodMode = argv?.p || argv?.mode === "production";
+  let prodMode = argv.p || argv.mode === "production";
 
   return {
     mode: prodMode ? "production" : "development",
