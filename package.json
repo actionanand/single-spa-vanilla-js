@@ -1,12 +1,15 @@
 {
-  "name": "single-spa-html-js-example",
+  "name": "single-spa-vanilla-js",
   "version": "1.0.0",
   "description": "An example of single-spa-html with plain JavaScript enhancement",
   "main": "index.js",
   "license": "MIT",
+  "homepage": "http://actionanand.github.io/single-spa-vanilla-js",
   "scripts": {
-    "start": "webpack serve",
-    "build": "webpack --mode=production"
+    "start": "webpack serve --port 20228",
+    "build": "webpack --mode=production",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@babel/runtime": "^7.17.8",
@@ -20,6 +23,7 @@
     "css-loader": "^6.7.1",
     "cssnano": "^5.1.5",
     "file-loader": "^6.2.0",
+    "gh-pages": "^4.0.0",
     "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
     "postcss": "^8.4.12",
