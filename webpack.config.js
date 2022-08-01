@@ -88,7 +88,7 @@ module.exports = (env, argv) => {
         const path = isAnyOf(publicPath, ["", "auto"]) ? "/" : publicPath;
 
         console.log(
-          `\n  ⚡️ single-spa vanilla JS app entry: ${protocol}${host}${port}${path}${filename}\n`
+          `\n  ⚡️ single-spa application entry: ${protocol}${host}${port}${path}${filename}\n`
         );
       },
     },
