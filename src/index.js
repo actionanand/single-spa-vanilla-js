@@ -2,6 +2,9 @@ import singleSpaHtml from 'single-spa-html'; // single-spa lifecycles helper
 import template from './template.html'; // separate html template provides better syntax highlighting
 import styles from './styles.css'; // CSS Modules; pitfall: ensure that your CSS is scoped else they will be *global*
 
+import { debounceTime, take } from 'rxjs/operators';
+
+import { getData, state$ } from '@actionanand/utility';
 
 // Use CSS modules in html template by interpolating them
 const interpolateTemplate = () => {
@@ -53,25 +56,56 @@ export const mount = async (props) => {
   const form = document.querySelector('.form-el');
   const amount = document.getElementById('amount');
   const result = document.querySelector('.lorem-text');
+  const svelteBtn = document.querySelector('.trigger-svelte');
 
-  form.addEventListener("submit", function (e) {
+  let htmlPara = `<p class="result"> No Text Found</p>`;
+  let paraNo;
+
+  svelteBtn.disabled = true;
+
+  getData('/data').then((data) => {
+    console.log('svelte ', data);
+  });
+
+  state$.pipe(debounceTime(0), take(1)).subscribe(async (resp) => {
+    // console.log('svelte ', resp.data);
+    if (resp.data.paraNo) {
+      amount.value = resp.data.paraNo;
+      document.querySelector('.submit-value').click();
+    }
+  });
+
+  form.addEventListener('submit', function (e) {
 
     e.preventDefault();
+
+    svelteBtn.disabled = false;
   
     const value = parseInt(amount.value);
     const random = Math.floor(Math.random() * text.length);
+
+    paraNo = value ? value : 1;
   
     if (isNaN(value) || value < 0 || value > 9) {
-      result.innerHTML = `<p class="result">${text[random]}</p>`;
+      htmlPara = `<p class="result">${text[random]}</p>`;
+      result.innerHTML = htmlPara;
     } else {
       let tempText = text.slice(0, value);
       tempText = tempText
         .map(function (item) {
           return `<p class="result">${item}</p>`;
         })
-        .join("");
+        .join('');
       result.innerHTML = tempText;
+      htmlPara = tempText;
     }
+  });
+
+
+  svelteBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const event = new CustomEvent('vanilla', { detail: {paraNo, htmlPara} });
+    window.dispatchEvent(event);
   });
 
 };

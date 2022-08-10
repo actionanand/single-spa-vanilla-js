@@ -92,6 +92,6 @@ module.exports = (env, argv) => {
         );
       },
     },
-    externals: ["single-spa"],
+    externals: ["single-spa", "@actionanand/utility"],
   };
 };
