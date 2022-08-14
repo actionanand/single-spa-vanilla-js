@@ -60,7 +60,7 @@ export const mount = async (props) => {
 
   document.title = 'Single-Spa Vanilla JS - Lorem Ipsum';
 
-  let htmlPara = `<p class="result"> No Text Found</p>`;
+  let htmlPara = `<p class="lorem-result"> No Text Found</p>`;
   let paraNo;
 
   svelteBtn.disabled = true;
@@ -89,13 +89,13 @@ export const mount = async (props) => {
     paraNo = value ? value : 1;
   
     if (isNaN(value) || value < 0 || value > 9) {
-      htmlPara = `<p class="result">${text[random]}</p>`;
+      htmlPara = `<p class="lorem-result">${text[random]}</p>`;
       result.innerHTML = htmlPara;
     } else {
       let tempText = text.slice(0, value);
       tempText = tempText
         .map(function (item) {
-          return `<p class="result">${item}</p>`;
+          return `<p class="lorem-result">${item}</p>`;
         })
         .join('');
       result.innerHTML = tempText;

@@ -44,13 +44,9 @@
 }
 
 .vanilla-wrap {
-  /* margin: 8px; */
   min-height: 62vh;
-}
-
-body {
-  font-family: var(--ff-secondary);;
-  background: var(--clr-grey-10);
+  font-family: var(--ff-secondary);
+  /* background: var(--clr-grey-10); */
   color: var(--clr-grey-1);
   line-height: 1.5;
   font-size: 0.875rem;
@@ -82,10 +78,6 @@ body {
   opacity: 0.65; 
 }
 
-/* section {
-  padding: 5rem 0;
-} */
-
 .section-center {
   width: 90vw;
   margin: 0 auto;
@@ -104,35 +96,39 @@ body {
   align-items: center;
 }
 
-
-label {
+.lorem-label {
   font-size: 1.25rem;
   color: var(--clr-primary-1);
 }
-input {
-  padding: .25rem .5rem;
 
+.lorem-input {
+  padding: .25rem .5rem;
   width: 4rem;
   border-radius: .5rem;
   border: none;
   margin: 0 .5rem;
   font-size: 1.25rem;
 }
-button {
-  background: var(--clr-primary-1);
+
+.lorem-input:focus {
+  outline: none;
+  border-color: var(--clr-primary-5);
+  -webkit-box-shadow: 0 0 5px var(--clr-primary-5);
+  box-shadow: 0 0 5px var(--clr-primary-5);
+  /* accent-color: var(--clr-primary-5); */
 }
 
-h1 {
+.lorem-title {
   text-transform: uppercase;
   color: var(--clr-primary-1);
   font-size: 1.5rem;
 }
 
-.result {
+.lorem-result {
   margin-bottom: 2rem;
 }
 
-p {
+.section-center p {
   margin-bottom: 1.25rem;
   color: var(--clr-grey-5);
 }
