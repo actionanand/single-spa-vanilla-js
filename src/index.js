@@ -58,6 +58,8 @@ export const mount = async (props) => {
   const result = document.querySelector('.lorem-text');
   const svelteBtn = document.querySelector('.trigger-svelte');
 
+  document.title = 'Single-Spa Vanilla JS - Lorem Ipsum';
+
   let htmlPara = `<p class="result"> No Text Found</p>`;
   let paraNo;
 
