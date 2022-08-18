@@ -44,7 +44,7 @@
 }
 
 .vanilla-wrap {
-  min-height: 62vh;
+  min-height: 63vh;
   font-family: var(--ff-secondary);
   /* background: var(--clr-grey-10); */
   color: var(--clr-grey-1);
